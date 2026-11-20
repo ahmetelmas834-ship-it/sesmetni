@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SesMetni - Seslendirme Metni Hazırlama Aracı</title>
+  <meta name="description" content="Türkçe içerik üreticileri için ücretsiz metin temizleme, kelime sayma ve seslendirme süresi hesaplama aracı.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="ust">
+    <h1>SesMetni</h1>
+    <p>Seslendirme metnini temizle, düzenle ve süresini hesapla.</p>
+  </header>
+
+  <main class="kutu">
+    <section class="kart">
+
+      <label for="metin" class="baslik">Metnini buraya yapıştır</label>
+      <textarea id="metin" rows="10" placeholder="Seslendirme metnini buraya yaz veya yapıştır..."></textarea>
+
+      <div class="istatistik">
+        <div><span id="kelimeSayisi">0</span><small>Kelime</small></div>
+        <div><span id="karakterSayisi">0</span><small>Karakter</small></div>
+        <div><span id="paragrafSayisi">0</span><small>Paragraf</small></div>
+        <div><span id="sure">0 sn</span><small>Tahmini süre</small></div>
+      </div>
+
+      <div class="hiz">
+        <label for="hiz">Konuşma hızı</label>
+        <select id="hiz">
+          <option value="110">Yavaş</option>
+          <option value="140" selected>Normal</option>
+          <option value="170">Hızlı</option>
+        </select>
+      </div>
+
+      <div class="butonlar">
+        <button id="temizleBtn" type="button">Metni Temizle</button>
+        <button id="duzenleBtn" type="button">Paragrafları Düzenle</button>
+        <button id="kopyalaBtn" type="button">Kopyala</button>
+        <button id="indirBtn" type="button">TXT İndir</button>
+      </div>
+
+      <p id="mesaj" class="mesaj"></p>
+
+    </section>
+  </main>
+
+  <footer class="alt">
+    <p>SesMetni açık kaynaklı ve ücretsiz bir projedir. MIT Lisansı.</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
