@@ -1,0 +1,160 @@
+:root {
+  --arka: #f4f6fb;
+  --kart: #ffffff;
+  --yazi: #1f2937;
+  --soluk: #6b7280;
+  --vurgu: #4f46e5;
+  --vurgu-koyu: #4338ca;
+  --cizgi: #e5e7eb;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  background: var(--arka);
+  color: var(--yazi);
+  line-height: 1.6;
+}
+
+.ust {
+  text-align: center;
+  padding: 32px 16px 8px;
+}
+
+.ust h1 {
+  margin: 0;
+  font-size: 2rem;
+  color: var(--vurgu);
+}
+
+.ust p {
+  margin: 8px 0 0;
+  color: var(--soluk);
+}
+
+.kutu {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 16px;
+}
+
+.kart {
+  background: var(--kart);
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+}
+
+.baslik {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+textarea {
+  width: 100%;
+  padding: 14px;
+  border: 1px solid var(--cizgi);
+  border-radius: 12px;
+  font-size: 1rem;
+  font-family: inherit;
+  resize: vertical;
+  color: var(--yazi);
+}
+
+textarea:focus,
+select:focus {
+  outline: 2px solid var(--vurgu);
+  border-color: transparent;
+}
+
+.istatistik {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  margin: 16px 0;
+}
+
+.istatistik div {
+  background: var(--arka);
+  border-radius: 12px;
+  padding: 12px;
+  text-align: center;
+}
+
+.istatistik span {
+  display: block;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--vurgu);
+}
+
+.istatistik small {
+  color: var(--soluk);
+}
+
+.hiz {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+select {
+  padding: 8px 12px;
+  border: 1px solid var(--cizgi);
+  border-radius: 10px;
+  font-size: 1rem;
+  background: #fff;
+  color: var(--yazi);
+}
+
+.butonlar {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+button {
+  padding: 12px;
+  border: none;
+  border-radius: 12px;
+  background: var(--vurgu);
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+button:hover {
+  background: var(--vurgu-koyu);
+}
+
+.mesaj {
+  min-height: 24px;
+  margin: 12px 0 0;
+  text-align: center;
+  color: var(--vurgu);
+  font-weight: 600;
+}
+
+.alt {
+  text-align: center;
+  padding: 24px 16px;
+  color: var(--soluk);
+  font-size: 0.9rem;
+}
+
+@media (min-width: 600px) {
+  .istatistik {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .butonlar {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
