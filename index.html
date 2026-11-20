@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#7c3aed">
   <title>SesMetni - Seslendirme Metni Hazırlama Aracı</title>
-  <meta name="description" content="Türkçe içerik üreticileri için ücretsiz metin temizleme, kelime sayma ve seslendirme süresi hesaplama aracı.">
+  <meta name="description" content="Türkçe içerik üreticileri için ücretsiz metin temizleme, kelime sayma, seslendirme süresi hesaplama ve SRT altyazı oluşturma aracı.">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -25,10 +25,11 @@
   </header>
 
   <main class="kutu">
-    <section class="kart">
 
+    <section class="kart">
       <label for="metin" class="baslik">Metnini buraya yapıştır</label>
       <textarea id="metin" rows="10" placeholder="Seslendirme metnini buraya yaz veya yapıştır..."></textarea>
+      <p id="kayitDurum" class="kayit-durum">Yazdıkların bu cihazda otomatik kaydedilir.</p>
 
       <div class="istatistik">
         <div><span id="kelimeSayisi">0</span><small>Kelime</small></div>
@@ -40,9 +41,10 @@
       <div class="hiz">
         <label for="hiz">Konuşma hızı</label>
         <select id="hiz">
-          <option value="110">Yavaş</option>
-          <option value="140" selected>Normal</option>
-          <option value="170">Hızlı</option>
+          <option value="120">120 kelime/dk (yavaş)</option>
+          <option value="140" selected>140 kelime/dk (normal)</option>
+          <option value="160">160 kelime/dk (hızlı)</option>
+          <option value="180">180 kelime/dk (çok hızlı)</option>
         </select>
       </div>
 
@@ -51,14 +53,49 @@
         <button id="duzenleBtn" type="button" class="ikincil">Paragrafları Düzenle</button>
         <button id="kopyalaBtn" type="button" class="ikincil">Kopyala</button>
         <button id="indirBtn" type="button">TXT İndir</button>
+        <button id="kayitSilBtn" type="button" class="ikincil tehlike genis">Kayıtlı Metni Sil</button>
       </div>
-
-      <p id="mesaj" class="mesaj"></p>
-
     </section>
+
+    <section class="kart">
+      <h2 class="kart-baslik">Gelişmiş Metin Araçları</h2>
+      <div class="arac-grid">
+        <button id="buyukBtn" type="button" class="ikincil">BÜYÜK HARF</button>
+        <button id="kucukBtn" type="button" class="ikincil">küçük harf</button>
+        <button id="cumleBtn" type="button" class="ikincil">Cümle Başlarını Büyüt</button>
+        <button id="kelimeBuyukBtn" type="button" class="ikincil">Her Kelime Büyük</button>
+        <button id="noktalamaBtn" type="button" class="ikincil">Noktalamayı Düzelt</button>
+      </div>
+      <div class="bolum-satir">
+        <label for="bolumBoyut">Bölüm başına paragraf</label>
+        <select id="bolumBoyut">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3" selected>3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
+        <button id="bolumBtn" type="button" class="ikincil">Bölümlere Ayır</button>
+      </div>
+    </section>
+
+    <section class="kart">
+      <h2 class="kart-baslik">SRT Altyazı Oluşturucu</h2>
+      <p class="aciklama">Metnin altyazı parçalarına bölünür ve süreler yukarıdaki konuşma hızına göre hesaplanır. <strong>Dikkat: Zamanlamalar sadece tahmindir.</strong> Videona göre süreleri kendin düzeltebilirsin.</p>
+      <div class="butonlar">
+        <button id="srtOlusturBtn" type="button">Altyazı Oluştur</button>
+        <button id="srtIndirBtn" type="button" class="ikincil" disabled>SRT İndir</button>
+      </div>
+      <div id="altyaziAlani" class="altyazi-alani"></div>
+    </section>
+
   </main>
 
+  <div id="bildirim" class="bildirim" role="status" aria-live="polite"></div>
+
   <footer class="alt">
+    <button id="kediBtn" type="button" class="kedi" aria-label="Kediyi sev">🐱</button>
+    <p id="kediMesaj" class="kedi-mesaj">Beni sev, mırr! 🐾</p>
     <p>SesMetni açık kaynaklı ve ücretsiz bir projedir. MIT Lisansı.</p>
     <p><a href="https://github.com/ahmetelmas834-ship-it/sesmetni">GitHub'da incele</a></p>
   </footer>
